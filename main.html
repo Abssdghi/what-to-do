@@ -4,10 +4,21 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Swipe Cards Pro</title>
+<style>
+  img {
+    user-select: none;
+    user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -ms-user-select: none;
+  }
+</style>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-zinc-100 h-screen flex items-center justify-center overflow-hidden p-8">
+<body class="bg-zinc-200 h-screen flex items-center justify-center overflow-hidden p-8 select-none">
 
 <div id="card-container" class="relative w-80 h-[520px]">  
 </div>
@@ -16,16 +27,16 @@
 const container = document.getElementById("card-container");
 const STORAGE_KEY = "seen_cards_history";
 
-// ---------- Random Data ----------
+// Random Data
 function getRandomCard() {
   const id = Date.now() + Math.random();
 
   return {
     id,
     image: `https://picsum.photos/400/700?random=${Math.floor(Math.random()*1000)}`,
-    title: ["Explorer","Dreamer","Innovator","Visionary"][Math.floor(Math.random()*4)],
+    title: ["Go for a Walk","Watch a movie","Read a Book","Call a friend"][Math.floor(Math.random()*4)],
     description: [
-      "Minimal vibes onlyonlyonlyonlyonl yonlyonlyonly onlyonlyonlyonlyonlyonly onlyonlyonlyonlyonlyonlyon lyonlyonlyonlyonlyo nlyonlyonlyonl yonlyonly.",
+      "Minimal vibes only.",
       "Living in aesthetic mode.",
       "Coffee + Code.",
       "Chasing experiences."
@@ -33,30 +44,31 @@ function getRandomCard() {
   };
 }
 
-// ---------- Save History ----------
+// Save History
 function saveToHistory(data) {
   const old = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
   old.push(data);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(old));
 }
 
-// ---------- Create Card ----------
-function createCard() {
+// Create Card
+function createCard(zIndex) {
   const data = getRandomCard();
 
   const card = document.createElement("div");
+  card.style.zIndex = zIndex;
   card.className = `
     absolute w-full h-full rounded-[50px] overflow-hidden
     shadow-2xl cursor-grab active:cursor-grabbing
-    transition-transform
+    transition-transform bg-white
   `;
 
   card.innerHTML = `
     <div class="w-full h-full relative">
-      <img src="${data.image}" class="w-full h-full object-cover"/>
+      <img src="${data.image}" class="w-full h-full object-cover drag-none"/>
       <div class="absolute bottom-0 w-full p-6 text-white bg-gradient-to-t from-black/80 to-transparent">
-        <h2 class="text-2xl font-bold text-shadow">${data.title}</h2>
-        <p class="text-sm opacity-80 mt-1 text-shadow">${data.description}</p>
+        <h2 class="text-3xl font-serif text-shadow-lg">${data.title}</h2>
+        <p class="text-sm font-mono opacity-80 mt-1 text-shadow-lg ml-1">${data.description}</p>
       </div>
     </div>
   `;
@@ -65,7 +77,7 @@ function createCard() {
   container.appendChild(card);
 }
 
-// ---------- Drag + Touch ----------
+// Drag + Touch
 function addDrag(card, data) {
   let startX, startY, currentX=0, currentY=0;
   let dragging = false;
@@ -105,8 +117,6 @@ function addDrag(card, data) {
 
       setTimeout(()=>{
         card.remove();
-        // createCard();
-        // createCard();
       },400);
     } else {
       card.style.transition = "0.3s ease";
@@ -133,9 +143,21 @@ function addDrag(card, data) {
   document.addEventListener("touchend", end);
 }
 
-// ---------- Init ----------
-createCard();
-createCard();
+// Show History in Console
+function showHistory() {
+  const history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  console.log("Seen Cards History:", history);
+}
+
+let zIndexCounter = 1000;
+setInterval(() => {
+    console.log(container.children.length);
+    if (container.children.length < 4) {
+        createCard(zIndexCounter);
+        zIndexCounter -= 1;
+    }
+}, 500);
+
 </script>
 
 </body>
