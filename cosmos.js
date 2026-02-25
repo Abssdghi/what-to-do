@@ -1,0 +1,63 @@
+async function cosmosSearch(searchTerm) {
+    const apiurl = "https://proxy.corsfix.com/?https://api.www.cosmos.so/graphql";
+    const body = {
+        "operationName": "SearchGlobalElementsUser",
+        "variables": {
+            "searchTerm": searchTerm,
+            "origin": "SEARCH_BOX",
+            "userId": null,
+            "searchColor": null,
+            "isFollowing": null,
+            "isAesthetic": null,
+            "contentType": null,
+            "searchUserId": null,
+            "order": null,
+            "enablePublicElements": true,
+            "pageCursor": null
+        },
+        "query": "query SearchGlobalElementsUser($searchTerm: String!, $origin: SearchOrigin, $userId: UserId, $searchColor: String, $isFollowing: Boolean, $contentType: ElementContentTypeFilter, $isAesthetic: Boolean, $searchUserId: UserId, $order: ElementOrder, $enablePublicElements: Boolean!) {\n  search(searchTerm: $searchTerm, searchOrigin: $origin) {\n    elements(\n      meta: {}\n      filters: {color: $searchColor, isFollowing: $isFollowing, contentType: $contentType, isAesthetic: $isAesthetic, userId: $searchUserId}\n      order: $order\n    ) {\n      items {\n        ...SearchElementTile\n        __typename\n      }\n      meta {\n        nextPageCursor\n        count\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n\nfragment SearchElementTile on SearchElement {\n  ...BaseSearchElementTile\n  ...SearchElementContextMenu\n  __typename\n}\n\nfragment BaseSearchElementTile on SearchElement {\n  id\n  image {\n    ...ElementImage\n    __typename\n  }\n  ownerId\n  ownerName\n  text\n  type\n  url\n  ownerName\n  articleTitle\n  articleDescription\n  sourceUrl\n  productTitle\n  aiGenerated\n  notSafeForWorkStatus\n  twitterAuthorUsername\n  twitterAuthorName\n  twitterMedia {\n    ...TwitterMedia\n    __typename\n  }\n  instagramAuthorName\n  youtubeAuthorName\n  tikTokAuthorName\n  pinterestAuthorUsername\n  pinterestAuthorName\n  rawVideo {\n    ...ElementRawVideo\n    __typename\n  }\n  mux {\n    ...ElementMux\n    __typename\n  }\n  video {\n    ...ElementVideo\n    __typename\n  }\n  instagramContentAccessibility\n  isInstagramCarousel\n  isTwitterCarousel\n  productPrice {\n    value\n    currency\n    __typename\n  }\n  isPublicDomain\n  isDisliked(userId: $userId)\n  generatedCaption {\n    text\n    __typename\n  }\n  __typename\n}\n\nfragment ElementImage on Image {\n  width\n  height\n  aspectRatio\n  url\n  hash\n  mp4Url\n  mp4ThumbnailUrl\n  __typename\n}\n\nfragment TwitterMedia on TwitterMedia {\n  mediaId\n  video {\n    url\n    isStored\n    __typename\n  }\n  image {\n    ...ElementImage\n    __typename\n  }\n  __typename\n}\n\nfragment ElementRawVideo on Video {\n  thumbnail {\n    hash\n    __typename\n  }\n  width\n  height\n  duration\n  __typename\n}\n\nfragment ElementMux on Mux {\n  mp4Url(quality: LOW)\n  thumbnailImageUrl\n  playbackUrl\n  __typename\n}\n\nfragment ElementVideo on Video {\n  url\n  isStored\n  duration\n  __typename\n}\n\nfragment SearchElementContextMenu on SearchElement {\n  id\n  type\n  url\n  notSafeForWorkStatus\n  numberOfConnectedUsers\n  downloadableImage: image {\n    url\n    __typename\n  }\n  downloadableVideo: video {\n    url\n    isStored\n    __typename\n  }\n  downloadableRawVideo: rawVideo {\n    url\n    isStored\n    __typename\n  }\n  ownerId\n  isUrlEditable\n  isSavedToLibrary(userId: $userId) @skip(if: $enablePublicElements)\n  isUserPublicElement(userId: $userId)\n  isConnectedByUser(userId: $userId)\n  userContext(userId: $userId) {\n    connections {\n      meta {\n        count\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n  __typename\n}\n"
+    };
+    
+    try {
+        const response = await fetch(apiurl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        return data;
+        
+    } catch (error) {
+        console.error("Error fetching search results:", error);
+        throw error;
+    }
+}
+
+async function getPic(term) {
+    try {
+        const searchResults = await cosmosSearch(term);
+        const randomIndex = Math.floor(Math.random() * 10);
+        
+        if (searchResults?.data?.search?.elements?.items?.length > 0) {
+            const items = searchResults.data.search.elements.items;
+            
+            if (items[randomIndex]?.image?.url) {
+                return items[randomIndex].image.url;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    } catch (error) {
+        console.error("Error in getPic:", error);
+        return null;
+    }
+}
