@@ -62,6 +62,11 @@ function getRandomCardFromDatabase() {
   return database.things[randomIndex];
 }
 
+function getRandomCardWithSeed(seed) {
+  const randomIndex = seed % database.things.length;
+  return database.things[randomIndex];
+}
+
 // Save History
 function saveToHistory(data) {
   const old = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
@@ -71,7 +76,7 @@ function saveToHistory(data) {
 
 // Create Card
 function createCard(zIndex) {
-  const data = getRandomCardFromDatabase();
+  const data = getRandomCardWithSeed(zIndex);
 
   const card = document.createElement("div");
   card.style.zIndex = zIndex;
@@ -167,7 +172,7 @@ function showHistory() {
   console.log("Seen Cards History:", history);
 }
 
-let zIndexCounter = 1000;
+let zIndexCounter = Math.floor(Math.random() * 1000) + 1000;
 setInterval(() => {
     console.log(container.children.length);
     if (container.children.length < 4) {
