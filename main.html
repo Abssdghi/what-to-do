@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Swipe Cards Pro</title>
+<title>WHAT TODO</title>
 <style>
   img {
     user-select: none;
@@ -27,21 +27,39 @@
 const container = document.getElementById("card-container");
 const STORAGE_KEY = "seen_cards_history";
 
-// Random Data
-function getRandomCard() {
-  const id = Date.now() + Math.random();
+const database = {
+    "things": [
+        {
+        "id": 1,
+        "img": "https://i.pinimg.com/736x/ae/30/64/ae30643125b9215894a15fefef0b6a1e.jpg",
+        "title": "Go for a Walk",
+        "description": "Nature is the best therapy."
+        },
+        {
+        "id": 2,
+        "img": "https://i.pinimg.com/1200x/04/86/76/04867621a89c35a68aa7648ccd367bea.jpg",
+        "title": "Watch a movie",
+        "description": "Escape into a different world."
+        },
+        {
+        "id": 3,
+        "img": "https://i.pinimg.com/736x/9c/28/75/9c2875a264a2e472e9203839ac5f8b11.jpg",
+        "title": "Read a Book",
+        "description": "Expand your mind. physical or digital, it doesn't matter."
+        },
+        {
+        "id": 4,
+        "img": "https://i.pinimg.com/736x/6a/95/52/6a9552c5ce404f3d218ff4d59f7c55c7.jpg",
+        "title": "Call a friend",
+        "description": "Reconnect and share some laughs."
+        }
+    ]
+}
 
-  return {
-    id,
-    image: `https://picsum.photos/400/700?random=${Math.floor(Math.random()*1000)}`,
-    title: ["Go for a Walk","Watch a movie","Read a Book","Call a friend"][Math.floor(Math.random()*4)],
-    description: [
-      "Minimal vibes only.",
-      "Living in aesthetic mode.",
-      "Coffee + Code.",
-      "Chasing experiences."
-    ][Math.floor(Math.random()*4)]
-  };
+// Get Random Card Data
+function getRandomCardFromDatabase() {
+  const randomIndex = Math.floor(Math.random() * database.things.length);
+  return database.things[randomIndex];
 }
 
 // Save History
@@ -53,7 +71,7 @@ function saveToHistory(data) {
 
 // Create Card
 function createCard(zIndex) {
-  const data = getRandomCard();
+  const data = getRandomCardFromDatabase();
 
   const card = document.createElement("div");
   card.style.zIndex = zIndex;
@@ -65,7 +83,7 @@ function createCard(zIndex) {
 
   card.innerHTML = `
     <div class="w-full h-full relative">
-      <img src="${data.image}" class="w-full h-full object-cover drag-none"/>
+      <img src="${data.img}" class="w-full h-full object-cover drag-none"/>
       <div class="absolute bottom-0 w-full p-6 text-white bg-gradient-to-t from-black/80 to-transparent">
         <h2 class="text-3xl font-serif text-shadow-lg">${data.title}</h2>
         <p class="text-sm font-mono opacity-80 mt-1 text-shadow-lg ml-1">${data.description}</p>
