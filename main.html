@@ -66,6 +66,7 @@ function getRandomCardFromDatabase() {
   return database.things[randomIndex];
 }
 
+// Get Card Data with Seed (for consistent results)
 function getRandomCardWithSeed(seed) {
   const randomIndex = seed % database.things.length;
   return database.things[randomIndex];
@@ -176,6 +177,7 @@ function showHistory() {
   console.log("Seen Cards History:", history);
 }
 
+// Create Initial Cards
 let zIndexCounter = Math.floor(Math.random() * 1000) + 1000;
 setInterval(() => {
     console.log(container.children.length);
