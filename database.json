@@ -1,0 +1,68 @@
+{
+    "categories": [
+        {"id": 1, "name": "Discovery"},
+        {"id": 2, "name": "Relaxation"},
+        {"id": 3, "name": "Creativity Flow"},
+        {"id": 4, "name": "Energy"},
+        {"id": 5, "name": "Connection"},
+        {"id": 6, "name": "Learning"},
+        {"id": 7, "name": "Fun"},
+        {"id": 8, "name": "Cozy"},
+        {"id": 9, "name": "Adventure"},
+        {"id": 10, "name": "Recharge"},
+        {"id": 11, "name": "Hanging Out"},
+        {"id": 12, "name": "Mental Stimulation"}
+    ],
+    "locations": [
+        {"id": 1, "name": "Home"},
+        {"id": 2, "name": "Cafe"},
+        {"id": 3, "name": "Library"},
+        {"id": 4, "name": "Green Space"},
+        {"id": 5, "name": "Shopping Center"},
+        {"id": 6, "name": "Outdoors"},
+        {"id": 7, "name": "Restaurant"},
+        {"id": 8, "name": "Online"},
+        {"id": 9, "name": "Subway"},
+        {"id": 10, "name": "Theater"},
+        {"id": 11, "name": "bookstore"},
+        {"id": 12, "name": "market"}
+    ],
+    "activities": [
+        {
+            "id": 1,
+            "keywords": ["outdoors", "nature", "fresh air", "exercise"],
+            "title": "Go for a Walk",
+            "category": [2],
+            "location": [4, 1],
+            "duration": "30m",
+            "description": "Nature is the best therapy."
+        },
+        {
+            "id": 2,
+            "keywords": ["movie", "entertainment", "relaxation", "popcorn"],
+            "title": "Watch a movie",
+            "category": [1],
+            "location": [1, 10],
+            "duration": "2h",
+            "description": "Escape into a different world."
+        },
+        {
+            "id": 3,
+            "keywords": ["book", "knowledge", "imagination", "relaxation"],
+            "title": "Read a Book",
+            "category": [1],
+            "location": [1, 3, 8],
+            "duration": "1h",
+            "description": "Expand your mind. physical or digital, it doesn't matter."
+        },
+        {
+            "id": 4,
+            "keywords": ["calling", "friend", "social", "fun"],
+            "title": "Call a friend",
+            "category": [4],
+            "location": [8],
+            "duration": "30m",
+            "description": "Reconnect and share some laughs."
+        }
+    ]
+}

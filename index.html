@@ -31,49 +31,32 @@
 const container = document.getElementById("card-container");
 const STORAGE_KEY = "seen_cards_history";
 
-const database = {
-    "things": [
-        {
-        "id": 1,
-        // "img": "https://i.pinimg.com/736x/ae/30/64/ae30643125b9215894a15fefef0b6a1e.jpg",
-        "keywords": ["outdoors", "nature", "fresh air", "exercise"],
-        "title": "Go for a Walk",
-        "description": "Nature is the best therapy."
-        },
-        {
-        "id": 2,
-        "img": "https://i.pinimg.com/1200x/04/86/76/04867621a89c35a68aa7648ccd367bea.jpg",
-        "keywords": ["movie", "entertainment", "relaxation", "popcorn"],
-        "title": "Watch a movie",
-        "description": "Escape into a different world."
-        },
-        {
-        "id": 3,
-        "img": "https://i.pinimg.com/736x/9c/28/75/9c2875a264a2e472e9203839ac5f8b11.jpg",
-        "keywords": ["book", "knowledge", "imagination", "relaxation"],
-        "title": "Read a Book",
-        "description": "Expand your mind. physical or digital, it doesn't matter."
-        },
-        {
-        "id": 4,
-        "img": "https://i.pinimg.com/736x/6a/95/52/6a9552c5ce404f3d218ff4d59f7c55c7.jpg",
-        "keywords": ["calling", "friend", "social", "fun"],
-        "title": "Call a friend",
-        "description": "Reconnect and share some laughs."
-        }
-    ]
+let database = {};
+async function loadDatabase() {
+    try {
+        const response = await fetch('./database.json');
+        const databasefetch = await response.json();
+        return databasefetch;
+    } catch (error) {
+        console.error('database error: ', error);
+    }
 }
+
+loadDatabase().then(db => {
+    database = db;
+});
+
 
 // Get Random Card Data
 function getRandomCardFromDatabase() {
-  const randomIndex = Math.floor(Math.random() * database.things.length);
-  return database.things[randomIndex];
+  const randomIndex = Math.floor(Math.random() * database.activities.length);
+  return database.activities[randomIndex];
 }
 
 // Get Card Data with Seed (for consistent results)
 function getRandomCardWithSeed(seed) {
-  const randomIndex = seed % database.things.length;
-  return database.things[randomIndex];
+  const randomIndex = seed % database.activities.length;
+  return database.activities[randomIndex];
 }
 
 // Save History
