@@ -1,31 +1,31 @@
 {
     "categories": [
-        {"id": 1, "name": "Discovery"},
-        {"id": 2, "name": "Relaxation"},
-        {"id": 3, "name": "Creativity Flow"},
-        {"id": 4, "name": "Energy"},
-        {"id": 5, "name": "Connection"},
-        {"id": 6, "name": "Learning"},
-        {"id": 7, "name": "Fun"},
-        {"id": 8, "name": "Cozy"},
-        {"id": 9, "name": "Adventure"},
-        {"id": 10, "name": "Recharge"},
-        {"id": 11, "name": "Hanging Out"},
-        {"id": 12, "name": "Mental Stimulation"}
+        { "id": 1, "name": "Discovery" },
+        { "id": 2, "name": "Relaxation" },
+        { "id": 3, "name": "Creativity Flow" },
+        { "id": 4, "name": "Energy" },
+        { "id": 5, "name": "Connection" },
+        { "id": 6, "name": "Learning" },
+        { "id": 7, "name": "Fun" },
+        { "id": 8, "name": "Cozy" },
+        { "id": 9, "name": "Adventure" },
+        { "id": 10, "name": "Recharge" },
+        { "id": 11, "name": "Hanging Out" },
+        { "id": 12, "name": "Mental Stimulation" }
     ],
     "locations": [
-        {"id": 1, "name": "Home"},
-        {"id": 2, "name": "Cafe"},
-        {"id": 3, "name": "Library"},
-        {"id": 4, "name": "Green Space"},
-        {"id": 5, "name": "Shopping Center"},
-        {"id": 6, "name": "Outdoors"},
-        {"id": 7, "name": "Restaurant"},
-        {"id": 8, "name": "Online"},
-        {"id": 9, "name": "Subway"},
-        {"id": 10, "name": "Theater"},
-        {"id": 11, "name": "bookstore"},
-        {"id": 12, "name": "market"}
+        { "id": 1, "name": "Home" },
+        { "id": 2, "name": "Cafe" },
+        { "id": 3, "name": "Library" },
+        { "id": 4, "name": "Green Space" },
+        { "id": 5, "name": "Shopping Center" },
+        { "id": 6, "name": "Outdoors" },
+        { "id": 7, "name": "Restaurant" },
+        { "id": 8, "name": "Online" },
+        { "id": 9, "name": "Subway" },
+        { "id": 10, "name": "Theater" },
+        { "id": 11, "name": "bookstore" },
+        { "id": 12, "name": "market" }
     ],
     "activities": [
         {
@@ -63,6 +63,650 @@
             "location": [8],
             "duration": "30m",
             "description": "Reconnect and share some laughs."
+        },
+        {
+            "id": 5,
+            "keywords": ["conversation", "meet", "connect", "social"],
+            "title": "Start a Conversation with a Neighbor or Stranger",
+            "category": [5, 11],
+            "location": [4, 6, 5],
+            "duration": "5-20m",
+            "description": "A friendly hello can brighten both days."
+        },
+        {
+            "id": 6,
+            "keywords": ["listen", "music", "mood", "relax"],
+            "title": "Listen to a New Playlist",
+            "category": [2, 7],
+            "location": [1, 8],
+            "duration": "30-90m",
+            "description": "Discover new artists or genres."
+        },
+        {
+            "id": 7,
+            "keywords": ["sketch", "draw", "doodle", "pen"],
+            "title": "Doodle or Sketch",
+            "category": [3],
+            "location": [1, 2],
+            "duration": "15-45m",
+            "description": "Let your hand move without judgment."
+        },
+        {
+            "id": 8,
+            "keywords": ["movie", "short", "clips", "watch"],
+            "title": "Watch Short Videos or Documentaries",
+            "category": [1, 7],
+            "location": [1, 8],
+            "duration": "10-60m",
+            "description": "Quick learning or entertainment bursts."
+        },
+        {
+            "id": 9,
+            "keywords": ["organize", "clean", "tidy", "refresh"],
+            "title": "Declutter a Drawer",
+            "category": [10],
+            "location": [1],
+            "duration": "15-30m",
+            "description": "Small wins boost mood and focus."
+        },
+        {
+            "id": 10,
+            "keywords": ["stretch", "flexibility", "energy", "movement"],
+            "title": "Do a Stretching Routine",
+            "category": [4, 10],
+            "location": [1, 4],
+            "duration": "10-20m",
+            "description": "Loosen up and boost circulation."
+        },
+        {
+            "id": 11,
+            "keywords": ["journal", "writing", "reflection", "gratitude"],
+            "title": "Write a Gratitude List",
+            "category": [12, 8],
+            "location": [1, 3],
+            "duration": "10m",
+            "description": "Focus on small positives in your day."
+        },
+        {
+            "id": 12,
+            "keywords": ["learn", "language", "vocab", "practice"],
+            "title": "Learn 10 Words in a New Language",
+            "category": [6],
+            "location": [1, 8],
+            "duration": "15m",
+            "description": "Small language steps stack up quickly."
+        },
+        {
+            "id": 13,
+            "keywords": ["cook", "recipe", "try", "kitchen"],
+            "title": "Try a New Simple Recipe",
+            "category": [3, 6],
+            "location": [1],
+            "duration": "30-60m",
+            "description": "Use pantry staples to make something different."
+        },
+        {
+            "id": 14,
+            "keywords": ["podcast", "listen", "learn", "audio"],
+            "title": "Listen to an Educational Podcast",
+            "category": [6],
+            "location": [1, 8, 4],
+            "duration": "20-60m",
+            "description": "Learn on the go or while relaxing."
+        },
+        {
+            "id": 15,
+            "keywords": ["photography", "capture", "phone", "composition"],
+            "title": "Take Photos with Your Phone",
+            "category": [9, 3],
+            "location": [6, 4, 1],
+            "duration": "20-60m",
+            "description": "Practice framing, light, and perspective."
+        },
+        {
+            "id": 16,
+            "keywords": ["meditation", "mindfulness", "breathing", "calm"],
+            "title": "Do a 10-Minute Meditation",
+            "category": [2, 10],
+            "location": [1, 4],
+            "duration": "10m",
+            "description": "Reset your mind with focused breathing."
+        },
+        {
+            "id": 17,
+            "keywords": ["puzzle", "jigsaw", "challenge", "focus"],
+            "title": "Solve a Puzzle or Brain Teaser",
+            "category": [12],
+            "location": [1, 3],
+            "duration": "15-45m",
+            "description": "Sharpen mental flexibility."
+        },
+        {
+            "id": 18,
+            "keywords": ["plan", "list", "goals", "organize"],
+            "title": "Make a 1-Week Plan",
+            "category": [12, 10],
+            "location": [1],
+            "duration": "15-30m",
+            "description": "Plan priorities and free up mental space."
+        },
+        {
+            "id": 19,
+            "keywords": ["origami", "paper", "folding", "craft"],
+            "title": "Fold Origami from Scrap Paper",
+            "category": [3],
+            "location": [1, 3],
+            "duration": "10-30m",
+            "description": "Create simple shapes with paper folding."
+        },
+        {
+            "id": 20,
+            "keywords": ["clean", "digital", "inbox", "emails"],
+            "title": "Clean Your Email Inbox",
+            "category": [12, 10],
+            "location": [1, 8],
+            "duration": "20-45m",
+            "description": "Archive, delete, and organize for clarity."
+        },
+        {
+            "id": 21,
+            "keywords": ["stargaze", "night", "sky", "observe"],
+            "title": "Observe the Night Sky (simple star spotting)",
+            "category": [9, 1],
+            "location": [6, 4, 1],
+            "duration": "15-30m",
+            "description": "Look for bright stars and constellations."
+        },
+        {
+            "id": 22,
+            "keywords": ["breathe", "relaxation", "exercise"],
+            "title": "Practice Deep Breathing Exercises",
+            "category": [2, 10],
+            "location": [1, 4],
+            "duration": "5-15m",
+            "description": "Calm the nervous system with breath."
+        },
+        {
+            "id": 23,
+            "keywords": ["memory", "recall", "game"],
+            "title": "Play a Memory Game (self-made cards)",
+            "category": [12, 7],
+            "location": [1],
+            "duration": "15-30m",
+            "description": "Create pairs on paper and match them."
+        },
+        {
+            "id": 24,
+            "keywords": ["poem", "writing", "creative", "short"],
+            "title": "Write a Short Poem",
+            "category": [3, 12],
+            "location": [1, 3],
+            "duration": "10-30m",
+            "description": "Use prompts like seasons or emotions."
+        },
+        {
+            "id": 25,
+            "keywords": ["learn", "skill", "practice", "free"],
+            "title": "Practice a Free Online Skill Tutorial",
+            "category": [6],
+            "location": [8, 1],
+            "duration": "30-60m",
+            "description": "Follow a beginner tutorial (coding, drawing, etc.)."
+        },
+        {
+            "id": 26,
+            "keywords": ["scrap", "collage", "magazine", "craft"],
+            "title": "Make a Collage from Old Magazines",
+            "category": [3],
+            "location": [1],
+            "duration": "30-60m",
+            "description": "Cut and assemble visuals that inspire you."
+        },
+        {
+            "id": 27,
+            "keywords": ["clean", "organize", "room", "home"],
+            "title": "Rearrange a Room for Freshness",
+            "category": [10, 3],
+            "location": [1],
+            "duration": "30-90m",
+            "description": "Change layout to refresh the space."
+        },
+        {
+            "id": 28,
+            "keywords": ["list", "favorites", "music", "books"],
+            "title": "Make a 'Favorite Things' List",
+            "category": [12, 8],
+            "location": [1, 3],
+            "duration": "10-20m",
+            "description": "Capture what brings you joy or comfort."
+        },
+        {
+            "id": 29,
+            "keywords": ["map", "plan", "itinerary", "future"],
+            "title": "Plan a Future Day Trip (ideas only)",
+            "category": [9, 1],
+            "location": [1, 8],
+            "duration": "20-40m",
+            "description": "Research free activities and routes."
+        },
+        {
+            "id": 30,
+            "keywords": ["clean", "phone", "photos", "organize"],
+            "title": "Organize Photos on Your Phone",
+            "category": [12, 10],
+            "location": [1, 8],
+            "duration": "20-60m",
+            "description": "Delete duplicates and make albums."
+        },
+        {
+            "id": 31,
+            "keywords": ["exercise", "cardio", "home", "movement"],
+            "title": "Do a Short Cardio Routine (jumping jacks, jog in place)",
+            "category": [4],
+            "location": [1, 4],
+            "duration": "10-20m",
+            "description": "Get the heart rate up with bodyweight moves."
+        },
+        {
+            "id": 32,
+            "keywords": ["learn", "history", "reading", "articles"],
+            "title": "Read a Short Article on a Topic You Don't Know",
+            "category": [1, 6],
+            "location": [1, 8, 3],
+            "duration": "15-30m",
+            "description": "Broaden knowledge with a quick read."
+        },
+        {
+            "id": 33,
+            "keywords": ["letters", "write", "gratitude", "connect"],
+            "title": "Write a Thank-You Note or Letter",
+            "category": [5, 8],
+            "location": [1],
+            "duration": "10-20m",
+            "description": "Express appreciation to someone who helped you."
+        },
+        {
+            "id": 34,
+            "keywords": ["learn", "history", "local", "walk"],
+            "title": "Explore Local History Online",
+            "category": [1, 6],
+            "location": [8, 1],
+            "duration": "20-40m",
+            "description": "Discover stories behind nearby places."
+        },
+        {
+            "id": 35,
+            "keywords": ["cleanse", "digital", "social", "detox"],
+            "title": "Do a Short Social Media Detox (set a timer)",
+            "category": [10],
+            "location": [1, 8],
+            "duration": "1-24h",
+            "description": "Take a break to reduce noise and stress."
+        },
+        {
+            "id": 36,
+            "keywords": ["game", "card", "solo", "play"],
+            "title": "Play a Solo Card Game (patience/solitaire)",
+            "category": [7, 12],
+            "location": [1, 3],
+            "duration": "10-30m",
+            "description": "Use a simple deck or improvised cards."
+        },
+        {
+            "id": 37,
+            "keywords": ["exercise", "routine", "yoga", "stretch"],
+            "title": "Try a Beginner Yoga Sequence",
+            "category": [10, 4],
+            "location": [1, 4],
+            "duration": "20-45m",
+            "description": "Focus on gentle poses and breathing."
+        },
+        {
+            "id": 38,
+            "keywords": ["learn", "math", "puzzles", "challenge"],
+            "title": "Solve Simple Math Puzzles",
+            "category": [12],
+            "location": [1, 3],
+            "duration": "15-30m",
+            "description": "Work on logic and arithmetic brain teasers."
+        },
+        {
+            "id": 39,
+            "keywords": ["clean", "kitchen", "habits", "organize"],
+            "title": "Deep-Clean One Kitchen Surface",
+            "category": [10],
+            "location": [1],
+            "duration": "15-45m",
+            "description": "Tackle the stove, counter, or sink area."
+        },
+        {
+            "id": 40,
+            "keywords": ["learn", "instrument", "beat", "rhythm"],
+            "title": "Learn Basic Rhythms by Clapping or Tapping",
+            "category": [6, 7],
+            "location": [1, 4],
+            "duration": "10-20m",
+            "description": "Practice simple beats with hands or objects."
+        },
+        {
+            "id": 41,
+            "keywords": ["compare", "list", "decide"],
+            "title": "Make a Pros/Cons List for a Decision",
+            "category": [12],
+            "location": [1],
+            "duration": "15-25m",
+            "description": "Organize thoughts to choose more clearly."
+        },
+        {
+            "id": 42,
+            "keywords": ["experiment", "kitchen", "mix", "taste"],
+            "title": "Create a New Sandwich or Snack Combination",
+            "category": [3, 7],
+            "location": [1],
+            "duration": "10-20m",
+            "description": "Mix flavors from your pantry for something new."
+        },
+        {
+            "id": 43,
+            "keywords": ["practice", "speech", "improve", "voice"],
+            "title": "Practice Public Speaking with a Short Talk",
+            "category": [12, 6],
+            "location": [1, 8],
+            "duration": "10-20m",
+            "description": "Pick a topic and rehearse a 2-minute talk."
+        },
+        {
+            "id": 44,
+            "keywords": ["maps", "explore", "virtual", "places"],
+            "title": "Explore a City Virtually on a Map Service",
+            "category": [1, 9],
+            "location": [8, 1],
+            "duration": "20-40m",
+            "description": "Visit landmarks and plan routes virtually."
+        },
+        {
+            "id": 45,
+            "keywords": ["challenge", "habit", "micro", "improve"],
+            "title": "Start a 7-Day Micro-Habit Challenge",
+            "category": [10, 12],
+            "location": [1],
+            "duration": "5-10m planning",
+            "description": "Pick a tiny habit to do daily for a week."
+        },
+        {
+            "id": 46,
+            "keywords": ["observe", "detail", "awareness"],
+            "title": "Observe 20 Small Details Around You",
+            "category": [1, 12],
+            "location": [1, 4, 6],
+            "duration": "10m",
+            "description": "Sharpen awareness by listing tiny details you usually ignore."
+        },
+        {
+            "id": 47,
+            "keywords": ["balance", "challenge", "body"],
+            "title": "Practice Standing on One Leg",
+            "category": [4],
+            "location": [1, 4],
+            "duration": "5-10m",
+            "description": "Improve balance and focus."
+        },
+        {
+            "id": 48,
+            "keywords": ["memory", "childhood", "reflect"],
+            "title": "Write 5 Childhood Memories",
+            "category": [8, 12],
+            "location": [1, 3],
+            "duration": "15m",
+            "description": "Reconnect with early life moments."
+        },
+        {
+            "id": 49,
+            "keywords": ["tongue twister", "speech", "fun"],
+            "title": "Practice Tongue Twisters",
+            "category": [7, 6],
+            "location": [1, 9],
+            "duration": "10m",
+            "description": "Challenge your pronunciation speed."
+        },
+        {
+            "id": 50,
+            "keywords": ["list", "dreams", "future"],
+            "title": "List 25 Things You Want to Experience",
+            "category": [1, 12],
+            "location": [1],
+            "duration": "20m",
+            "description": "Dream freely without limits."
+        },
+
+        {
+            "id": 51,
+            "keywords": ["shadow", "sunlight", "observe"],
+            "title": "Watch How Light Changes in a Room",
+            "category": [2, 1],
+            "location": [1],
+            "duration": "15m",
+            "description": "Notice shifting light and shadows."
+        },
+        {
+            "id": 52,
+            "keywords": ["posture", "health", "awareness"],
+            "title": "Improve Your Sitting Posture",
+            "category": [10],
+            "location": [1, 3, 8],
+            "duration": "10m",
+            "description": "Adjust alignment and relax shoulders."
+        },
+        {
+            "id": 53,
+            "keywords": ["lyrics", "music", "creative"],
+            "title": "Write Alternative Lyrics to a Song",
+            "category": [3, 7],
+            "location": [1],
+            "duration": "20m",
+            "description": "Create funny or dramatic versions."
+        },
+        {
+            "id": 54,
+            "keywords": ["debate", "thinking", "logic"],
+            "title": "Debate With Yourself on a Topic",
+            "category": [12],
+            "location": [1],
+            "duration": "15m",
+            "description": "Argue both sides for clarity."
+        },
+        {
+            "id": 55,
+            "keywords": ["compliments", "positivity"],
+            "title": "Write 5 Compliments to Yourself",
+            "category": [8, 10],
+            "location": [1],
+            "duration": "10m",
+            "description": "Boost confidence intentionally."
+        },
+
+        {
+            "id": 56,
+            "keywords": ["speed", "reading", "challenge"],
+            "title": "Time Your Reading Speed",
+            "category": [6, 12],
+            "location": [1, 3],
+            "duration": "15m",
+            "description": "Measure and improve focus."
+        },
+        {
+            "id": 57,
+            "keywords": ["walk", "mindful", "slow"],
+            "title": "Walk Slowly and Mindfully Indoors",
+            "category": [2],
+            "location": [1],
+            "duration": "10m",
+            "description": "Feel each step carefully."
+        },
+        {
+            "id": 58,
+            "keywords": ["gratitude", "message", "connect"],
+            "title": "Send a Kind Message to Someone",
+            "category": [5],
+            "location": [8],
+            "duration": "5m",
+            "description": "Brighten someone’s day instantly."
+        },
+        {
+            "id": 59,
+            "keywords": ["brainstorm", "ideas", "creative"],
+            "title": "Brainstorm 30 Random Business Ideas",
+            "category": [3, 12],
+            "location": [1],
+            "duration": "20m",
+            "description": "Quantity over quality."
+        },
+        {
+            "id": 60,
+            "keywords": ["silence", "challenge", "focus"],
+            "title": "Sit in Silence for 5 Minutes",
+            "category": [2, 10],
+            "location": [1, 4],
+            "duration": "5m",
+            "description": "Observe thoughts without reacting."
+        },
+
+        {
+            "id": 61,
+            "keywords": ["alphabet", "game", "memory"],
+            "title": "Name a Country for Every Letter",
+            "category": [12, 7],
+            "location": [1, 9],
+            "duration": "15m",
+            "description": "Test geography recall."
+        },
+        {
+            "id": 62,
+            "keywords": ["stretch", "neck", "relief"],
+            "title": "Do a Neck and Shoulder Release Routine",
+            "category": [4, 10],
+            "location": [1],
+            "duration": "10m",
+            "description": "Ease tension from screens."
+        },
+        {
+            "id": 63,
+            "keywords": ["journal", "future self"],
+            "title": "Write a Letter to Your Future Self",
+            "category": [8, 3],
+            "location": [1],
+            "duration": "20m",
+            "description": "Capture today’s mindset."
+        },
+        {
+            "id": 64,
+            "keywords": ["riddles", "logic", "fun"],
+            "title": "Create Your Own Riddle",
+            "category": [3, 12],
+            "location": [1],
+            "duration": "15m",
+            "description": "Challenge others later."
+        },
+        {
+            "id": 65,
+            "keywords": ["breathing", "box", "calm"],
+            "title": "Practice Box Breathing",
+            "category": [2, 10],
+            "location": [1, 4],
+            "duration": "5m",
+            "description": "Inhale-hold-exhale-hold rhythm."
+        },
+
+        {
+            "id": 66,
+            "keywords": ["values", "clarity", "reflection"],
+            "title": "Define Your Top 5 Values",
+            "category": [12],
+            "location": [1],
+            "duration": "20m",
+            "description": "Clarify what truly matters."
+        },
+        {
+            "id": 67,
+            "keywords": ["improv", "story", "fun"],
+            "title": "Tell a 2-Minute Improvised Story",
+            "category": [7, 3],
+            "location": [1],
+            "duration": "10m",
+            "description": "No planning allowed."
+        },
+        {
+            "id": 68,
+            "keywords": ["clean", "desktop", "digital"],
+            "title": "Organize Your Computer Desktop",
+            "category": [10],
+            "location": [1, 8],
+            "duration": "20m",
+            "description": "Create folders and delete clutter."
+        },
+        {
+            "id": 69,
+            "keywords": ["math", "mental", "speed"],
+            "title": "Practice Mental Math",
+            "category": [12],
+            "location": [1, 9],
+            "duration": "15m",
+            "description": "Multiply and divide without paper."
+        },
+        {
+            "id": 70,
+            "keywords": ["affirmations", "confidence"],
+            "title": "Create 5 Personal Affirmations",
+            "category": [8],
+            "location": [1],
+            "duration": "10m",
+            "description": "Repeat empowering phrases."
+        },
+
+        {
+            "id": 71,
+            "keywords": ["cleanup", "bag", "minimal"],
+            "title": "Clean Out Your Bag or Backpack",
+            "category": [10],
+            "location": [1],
+            "duration": "15m",
+            "description": "Remove unnecessary items."
+        },
+        {
+            "id": 72,
+            "keywords": ["mirror", "expression", "fun"],
+            "title": "Practice Different Facial Expressions",
+            "category": [7],
+            "location": [1],
+            "duration": "10m",
+            "description": "Observe how emotion changes appearance."
+        },
+        {
+            "id": 73,
+            "keywords": ["documentary", "topic", "learn"],
+            "title": "Watch a Short Educational Clip",
+            "category": [6],
+            "location": [8, 1],
+            "duration": "20m",
+            "description": "Pick a random topic."
+        },
+        {
+            "id": 74,
+            "keywords": ["step count", "movement", "challenge"],
+            "title": "Set a 1000-Step Indoor Challenge",
+            "category": [4],
+            "location": [1],
+            "duration": "15m",
+            "description": "Walk around creatively."
+        },
+        {
+            "id": 75,
+            "keywords": ["sketch", "object", "observe"],
+            "title": "Draw an Object in Front of You",
+            "category": [3],
+            "location": [1, 2],
+            "duration": "20m",
+            "description": "Focus on shape not perfection."
         }
     ]
 }
