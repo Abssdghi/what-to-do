@@ -68,32 +68,32 @@ async function cosmosSearch(searchTerm) {
     };
     
     try {
-const response = await fetch(apiurl, {
-    method: "POST",
-    headers: {
-        "accept": "*/*",
-        "accept-encoding": "gzip, deflate, br, zstd",
-        "accept-language": "en-US,en;q=0.9,fa;q=0.8",
-        "authorization": "Bearer undefined",
-        "cache-control": "no-cache",
-        "content-type": "application/json",
-        "origin": "https://www.cosmos.so",
-        "pragma": "no-cache",
-        "priority": "u=1, i",
-        "referer": "https://www.cosmos.so/",
-        "sec-ch-ua": '"Not:A-Brand";v="99", "Google Chrome";v="145", "Chromium";v="145"',
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": '"Windows"',
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-site",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
-        "x-client-name": "web",
-        "x-client-version": "2.4.17"
-    },
-    body: JSON.stringify(body)
-});
-        
+        const response = await fetch(apiurl, {
+            method: "POST",
+            headers: {
+                "accept": "*/*",
+                "accept-encoding": "gzip, deflate, br, zstd",
+                "accept-language": "en-US,en;q=0.9,fa;q=0.8",
+                "authorization": "Bearer undefined",
+                "cache-control": "no-cache",
+                "content-type": "application/json",
+                "origin": "https://www.cosmos.so",
+                "pragma": "no-cache",
+                "priority": "u=1, i",
+                "referer": "https://www.cosmos.so/",
+                "sec-ch-ua": '"Not:A-Brand";v="99", "Google Chrome";v="145", "Chromium";v="145"',
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": '"Windows"',
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+                "x-client-name": "web",
+                "x-client-version": "2.4.17"
+            },
+            body: JSON.stringify(body)
+        });
+                
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -117,7 +117,7 @@ const response = await fetch(apiurl, {
 async function getPic(term) {
     try {
         const searchResults = await cosmosSearch(term);
-        const randomIndex = Math.floor(Math.random() * 100);
+        const randomIndex = Math.floor(100 - Math.pow(Math.random(), 1.5) * 100);
         
         if (searchResults?.data?.search?.elements?.items?.length > 0) {
             const items = searchResults.data.search.elements.items;

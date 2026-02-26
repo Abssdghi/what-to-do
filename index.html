@@ -201,7 +201,7 @@ function showHistory() {
 // Create Initial Cards
 let zIndexCounter = Math.floor(Math.random() * 1000) + 1000;
 setInterval(() => {
-    if (container.children.length < 10) {
+    if (container.children.length < 4) {
         createCard(zIndexCounter);
         zIndexCounter -= 1;
     }
