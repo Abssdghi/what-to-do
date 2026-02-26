@@ -7,7 +7,6 @@
 <style>
   img {
     user-select: none;
-    user-drag: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -19,7 +18,7 @@
 </head>
 
 <body class="bg-zinc-200 h-screen flex items-center justify-center overflow-hidden select-none">
-  <div class="flex flex-col items-center gap-10">
+  <div class="flex flex-col items-center gap-10 mb-12 mt-2">
     <h1 class="text-4xl font-serif text-black">
       WHAT TO DO?
     </h1>
@@ -101,10 +100,10 @@ function createCard(zIndex) {
   img.src = '/what-to-do/loading.webp' || 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWFibWQxNGc1bjF1d2l5amZna29sdzJpcW16OHlvN2xtbXo5bjc0diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aD7el9eHQ6qjBfeFdm/giphy.gif';
   
   const contentDiv = document.createElement('div');
-  contentDiv.className = 'absolute bottom-0 w-full p-6 text-white bg-gradient-to-t from-black/80 to-transparent';
+  contentDiv.className = 'absolute bottom-0 w-full bg-gradient-to-t from-black via-black/60 to-transparent pt-12 pb-4 px-6 pb-9';
   contentDiv.innerHTML = `
-    <h2 class="text-3xl font-serif text-shadow-lg">${data.title}</h2>
-    <p class="text-sm font-mono opacity-80 mt-1 text-shadow-lg ml-1">${data.description}</p>
+    <h2 class="text-3xl font-serif text-white drop-shadow-lg leading-tight">${data.title}</h2>
+    <p class="text-sm font-mono text-gray-200 mt-1.5 drop-shadow-md leading-relaxed max-w-2xl">${data.description}</p>
   `;
 
   const innerDiv = document.createElement('div');
