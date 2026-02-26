@@ -1,5 +1,54 @@
+async function fetchWithRetry(apiurl, body, maxAttempts = 10, timeoutMs = 5000) {
+    let lastError;
+    
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+        
+        try {
+            console.log(`Attempt ${attempt} of ${maxAttempts}`);
+            
+            const response = await fetch(apiurl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
+                signal: controller.signal
+            });
+            
+            clearTimeout(timeoutId);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            return data;
+            
+        } catch (error) {
+            clearTimeout(timeoutId);
+            lastError = error;
+            
+            if (error.name === 'AbortError') {
+                console.log(`Attempt ${attempt} timed out after ${timeoutMs}ms`);
+            } else {
+                console.error(`Error in attempt ${attempt}:`, error);
+            }
+            
+            if (attempt === maxAttempts) {
+                console.error(`All ${maxAttempts} attempts failed`);
+                throw lastError;
+            }
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+        }
+    }
+}
+
+
 async function cosmosSearch(searchTerm) {
-    const apiurl = "https://proxy.corsfix.com/?https://api.www.cosmos.so/graphql";
+    const apiurl = "https://corsproxy.io/https://api.www.cosmos.so/graphql?q=SearchGlobalElementsUser";
     const body = {
         "operationName": "SearchGlobalElementsUser",
         "variables": {
@@ -19,13 +68,31 @@ async function cosmosSearch(searchTerm) {
     };
     
     try {
-        const response = await fetch(apiurl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body)
-        });
+const response = await fetch(apiurl, {
+    method: "POST",
+    headers: {
+        "accept": "*/*",
+        "accept-encoding": "gzip, deflate, br, zstd",
+        "accept-language": "en-US,en;q=0.9,fa;q=0.8",
+        "authorization": "Bearer undefined",
+        "cache-control": "no-cache",
+        "content-type": "application/json",
+        "origin": "https://www.cosmos.so",
+        "pragma": "no-cache",
+        "priority": "u=1, i",
+        "referer": "https://www.cosmos.so/",
+        "sec-ch-ua": '"Not:A-Brand";v="99", "Google Chrome";v="145", "Chromium";v="145"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"Windows"',
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-site",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+        "x-client-name": "web",
+        "x-client-version": "2.4.17"
+    },
+    body: JSON.stringify(body)
+});
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -38,12 +105,19 @@ async function cosmosSearch(searchTerm) {
         console.error("Error fetching search results:", error);
         throw error;
     }
+    // try {
+    //     const result = await fetchWithRetry(apiurl, body);
+    //     console.log("Success:", result);
+    //     return result;
+    // } catch (error) {
+    //     console.error("Final error after all retries:", error);
+    // }
 }
 
 async function getPic(term) {
     try {
         const searchResults = await cosmosSearch(term);
-        const randomIndex = Math.floor(Math.random() * 10);
+        const randomIndex = Math.floor(Math.random() * 100);
         
         if (searchResults?.data?.search?.elements?.items?.length > 0) {
             const items = searchResults.data.search.elements.items;
