@@ -15,7 +15,7 @@
     -ms-user-select: none;
   }
 </style>
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="tailwind-3.4.17.js"></script>
 </head>
 
 <body class="bg-zinc-200 h-screen flex items-center justify-center overflow-hidden select-none">
@@ -201,7 +201,7 @@ function showHistory() {
 // Create Initial Cards
 let zIndexCounter = Math.floor(Math.random() * 1000) + 1000;
 setInterval(() => {
-    if (container.children.length < 4) {
+    if (container.children.length < 10) {
         createCard(zIndexCounter);
         zIndexCounter -= 1;
     }
