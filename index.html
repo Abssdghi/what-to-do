@@ -27,6 +27,7 @@
   </div>
 </div>
 <script src="cosmos.js"></script>
+<!-- <script src="imageSearch.js"></script> -->
 <script>
 const container = document.getElementById("card-container");
 const STORAGE_KEY = "seen_cards_history";
@@ -97,7 +98,7 @@ function createCard(zIndex) {
 
   const img = document.createElement('img');
   img.className = 'w-full h-full object-cover drag-none';
-  img.src = '/loading.webp' || 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWFibWQxNGc1bjF1d2l5amZna29sdzJpcW16OHlvN2xtbXo5bjc0diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aD7el9eHQ6qjBfeFdm/giphy.gif';
+  img.src = '/what-to-do/loading.webp' || 'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWFibWQxNGc1bjF1d2l5amZna29sdzJpcW16OHlvN2xtbXo5bjc0diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aD7el9eHQ6qjBfeFdm/giphy.gif';
   
   const contentDiv = document.createElement('div');
   contentDiv.className = 'absolute bottom-0 w-full p-6 text-white bg-gradient-to-t from-black/80 to-transparent';
